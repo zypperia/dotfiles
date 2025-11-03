@@ -23,14 +23,6 @@
     # py
     uv    
     
-    # river essentials
-    river
-    rivertile
-    swaybg
-    grim
-    slurp
-    wl-clipboard
-    mako
     wayfire
   ];
 
