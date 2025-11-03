@@ -269,6 +269,7 @@
     };
   };
   
+  fonts.fontconfig.enable = true;
   programs = {
     home-manager.enable = true;
     fuzzel.enable = true;
