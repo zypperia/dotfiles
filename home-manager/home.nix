@@ -31,6 +31,7 @@
     slurp
     wl-clipboard
     mako
+    wayfire
   ];
 
   home.sessionVariables = {
@@ -278,7 +279,6 @@
   
   programs = {
     home-manager.enable = true;
-    wayfire.enable = true;
     fuzzel.enable = true;
   };
 }
