@@ -167,8 +167,8 @@
         "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.wl-clipboard}/bin/wl-copy"
       ];
       map.normal = {
-        "Super Return" = "spawn ${pkgs.foot}/bin/foot";
-        "Super D" = "spawn ${pkgs.fuzzel}/bin/fuzzel";
+        "Super Return" = "spawn foot";
+        "Super D" = "spawn fuzzel";
         "Super Q" = "close";
         "Super E" = "exit";
         "Super F" = "toggle-fullscreen";
@@ -200,7 +200,7 @@
         "Super+Shift 8" = "set-view-tags 128";
         "Super+Shift 9" = "set-view-tags 256";
         # screenshots
-        "Super Print" = "spawn sh -lc '${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png'";
+        #"Super Print" = "spawn sh -lc '${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png'";
       };
     };
   };
