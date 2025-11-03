@@ -22,6 +22,15 @@
 
     # py
     uv    
+    
+    # river essentials
+    river
+    rivertile
+    swaybg
+    grim
+    slurp
+    wl-clipboard
+    mako
   ];
 
   home.sessionVariables = {
@@ -145,6 +154,67 @@
     };
   };
 
+  # River compositor (standard minimal config)
+  wayland.windowManager.river = {
+    enable = true;
+    package = pkgs.river;
+    settings = {
+      set-repeat = "50 300";
+      default-layout = "rivertile";
+      xcursor-theme = "Adwaita 24";
+      focus-follows-cursor = "normal";
+      spawn = [
+        # rivertile
+        "${pkgs.rivertile}/bin/rivertile -view-padding 4 -outer-padding 8"
+        # wallpaper (optional)
+        "sh -lc '[ -f $HOME/.local/share/wallpaper ] && ${pkgs.swaybg}/bin/swaybg -m fill -i \"$HOME/.local/share/wallpaper\"'"
+        # notifications
+        "${pkgs.mako}/bin/mako"
+        # clipboard helpers
+        "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.wl-clipboard}/bin/wl-copy"
+        "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.wl-clipboard}/bin/wl-copy"
+      ];
+      map.normal = {
+        "Super Return" = "spawn ${pkgs.foot}/bin/foot";
+        "Super D" = "spawn ${pkgs.fuzzel}/bin/fuzzel";
+        "Super Q" = "close";
+        "Super E" = "exit";
+        "Super F" = "toggle-fullscreen";
+        # focus / swap
+        "Super J" = "focus-view next";
+        "Super K" = "focus-view previous";
+        "Super+Shift J" = "swap next";
+        "Super+Shift K" = "swap previous";
+        # rivertile ratio adjust
+        "Super H" = "send-layout-cmd rivertile 'main-ratio -0.05'";
+        "Super L" = "send-layout-cmd rivertile 'main-ratio +0.05'";
+        # workspaces 1..9
+        "Super 1" = "set-focused-tags 1";
+        "Super 2" = "set-focused-tags 2";
+        "Super 3" = "set-focused-tags 4";
+        "Super 4" = "set-focused-tags 8";
+        "Super 5" = "set-focused-tags 16";
+        "Super 6" = "set-focused-tags 32";
+        "Super 7" = "set-focused-tags 64";
+        "Super 8" = "set-focused-tags 128";
+        "Super 9" = "set-focused-tags 256";
+        "Super+Shift 1" = "set-view-tags 1";
+        "Super+Shift 2" = "set-view-tags 2";
+        "Super+Shift 3" = "set-view-tags 4";
+        "Super+Shift 4" = "set-view-tags 8";
+        "Super+Shift 5" = "set-view-tags 16";
+        "Super+Shift 6" = "set-view-tags 32";
+        "Super+Shift 7" = "set-view-tags 64";
+        "Super+Shift 8" = "set-view-tags 128";
+        "Super+Shift 9" = "set-view-tags 256";
+        # screenshots
+        "Super Print" = "spawn sh -lc '${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png'";
+      };
+    };
+  };
+
+  # removed explicit init file in favor of river.settings
+
 
   programs.fastfetch = {
     enable = true;
@@ -208,6 +278,7 @@
   
   programs = {
     home-manager.enable = true;
+    wayfire.enable = true;
     fuzzel.enable = true;
   };
 }
