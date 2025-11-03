@@ -7,6 +7,10 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    # base
+    librewolf
+    foot
+
     # dev ed
     zed-editor
 
@@ -16,15 +20,131 @@
     cmake
     gcc
 
-    # sys tools
-    foot
-    
-    
+    # py
+    uv    
   ];
 
   home.sessionVariables = {
     EDITOR = "hx";
   };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    #xwayland.enable = false;
+    systemd.enable = true;
+
+
+    settings = {
+      "$mod" = "SUPER";
+
+      monitor = ",preferred,auto,auto";
+
+      general = {
+        gaps_in = 6;
+        gaps_out = 12;
+        border_size = 0;
+
+        resize_on_border = true;
+        allow_tearing = false;
+        layout = "dwindle";
+      };
+
+      decoration = {
+        rounding = 10;
+        rounding_power = 2;
+      };
+
+    animations.enabled = false;
+
+      env = [
+        #"HYPRCURSOR_SIZE,24"
+        #"HYPRCURSOR_THEME,Adwaita"
+      ];
+
+      /*exec-once = [
+        "swaybg -i ~/downloads/output2.png"
+        #"hyprctl setcursor adwaita-dark 24"
+      ];*/
+
+      bind = [
+        "$mod, Q, exec, kitty"
+        "$mod, R, exec, fuzzel"
+        "$mod, C, killactive"
+        "$mod, M, exit"
+
+        "$mod, V, togglefloating,"
+        "$mod, P, pseudo,"
+        "$mod, J, togglesplit"
+
+        ", PRINT, exec, hyprshot -m region"
+
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+
+        "$mod SHIFT, H, movewindow, l"
+        "$mod SHIFT, L, movewindow, r"
+        "$mod SHIFT, K, movewindow, u"
+        "$mod SHIFT, J, movewindow, d"
+
+        # Workspaces
+        "$mod, 1, workspace, 1"
+        "$mod, 2, workspace, 2"
+        "$mod, 3, workspace, 3"
+        "$mod, 4, workspace, 4"
+        "$mod, 5, workspace, 5"
+        "$mod, 6, workspace, 6"
+        "$mod, 7, workspace, 7"
+        "$mod, 8, workspace, 8"
+        "$mod, 9, workspace, 9"
+        "$mod, 0, workspace, 10"
+        # Workspaces move
+        "$mod SHIFT, 1, movetoworkspace, 1"
+        "$mod SHIFT, 2, movetoworkspace, 2"
+        "$mod SHIFT, 3, movetoworkspace, 3"
+        "$mod SHIFT, 4, movetoworkspace, 4"
+        "$mod SHIFT, 5, movetoworkspace, 5"
+        "$mod SHIFT, 6, movetoworkspace, 6"
+        "$mod SHIFT, 7, movetoworkspace, 7"
+        "$mod SHIFT, 8, movetoworkspace, 8"
+        "$mod SHIFT, 9, movetoworkspace, 9"
+        "$mod SHIFT, 0, movetoworkspace, 10"
+
+        "$mod, mouse_down, workspace, e+1"
+        "$mod, mouse_up, workspace, e-1"
+      ];
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+      ];
+
+      bindel = [
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+      ];
+
+      windowrulev2 = [
+        "size = 1000 1000,floating:1"
+      ];
+
+      misc = {
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
+      };
+
+      input = {
+        kb_layout = "us,ru";
+        kb_options = "grp:caps_toggle";
+        touchpad.natural_scroll = true;
+      };
+    };
+  };
+
 
   programs.fastfetch = {
     enable = true;
@@ -86,5 +206,8 @@
     };
   };
   
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    fuzzel.enable = true;
+  };
 }
