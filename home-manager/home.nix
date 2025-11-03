@@ -10,6 +10,8 @@
     # base
     librewolf
     foot
+    iosevka
+    nerd-fonts.iosevka-term-slab
 
     # dev ed
     zed-editor
