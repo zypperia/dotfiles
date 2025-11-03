@@ -10,6 +10,7 @@
     # base
     librewolf
     alacritty
+    jetbrains-mono
     nerd-fonts.jetbrains-mono
 
     # dev ed
