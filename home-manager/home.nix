@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     # base
     librewolf
-    alacritty
+    foot
     jetbrains-mono
     nerd-fonts.jetbrains-mono
 
@@ -169,7 +169,7 @@
       #  "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.wl-clipboard}/bin/wl-copy"
       #];
       map.normal = {
-        "Super Return" = "spawn alacritty";
+        "Super Return" = "spawn foot";
         "Super D" = "spawn fuzzel";
         "Super Q" = "close";
         "Super E" = "exit";
