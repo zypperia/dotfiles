@@ -150,7 +150,6 @@
   # River compositor (standard minimal config)
   wayland.windowManager.river = {
     enable = true;
-    package = pkgs.river;
     settings = {
       set-repeat = "50 300";
       default-layout = "rivertile";
