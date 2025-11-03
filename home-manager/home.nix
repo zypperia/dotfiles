@@ -67,7 +67,7 @@
       ];*/
 
       bind = [
-        "$mod, Q, exec, kitty"
+        "$mod, Q, exec, foot"
         "$mod, R, exec, fuzzel"
         "$mod, C, killactive"
         "$mod, M, exit"
