@@ -10,6 +10,8 @@
     # base
     librewolf
     foot
+    alacritty
+    kitty
     jetbrains-mono
     nerd-fonts.jetbrains-mono
 
@@ -22,10 +24,15 @@
     cmake
     gcc
 
+    # lsp
+    tree-sitter
+    clang-tools
+    gopls
+    nil
+    ruff
+
     # py
-    uv    
-    
-    wayfire
+    uv
   ];
 
   home.sessionVariables = {
@@ -154,8 +161,8 @@
     enable = true;
     settings = {
       set-repeat = "50 300";
-      default-layout = "rivertile";
-      xcursor-theme = "Adwaita 24";
+      #default-layout = "dwindle";
+      #xcursor-theme = "Adwaita 24";
       focus-follows-cursor = "normal";
       #spawn = [
       #  # rivertile
@@ -206,9 +213,6 @@
       };
     };
   };
-
-  # removed explicit init file in favor of river.settings
-
 
   programs.fastfetch = {
     enable = true;
@@ -267,6 +271,13 @@
     settings = {
       user.name = "Zypperia";
       user.email = "q@q.xyz";
+    };
+  };
+
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "ayu_dark";
     };
   };
   
