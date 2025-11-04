@@ -165,6 +165,7 @@
       #xcursor-theme = "Adwaita 24";
       focus-follows-cursor = "normal";
       spawn = [
+        "rivertile"
         "rivertile -view-padding 4 -outer-padding 8"
       ];
       map.normal = {
