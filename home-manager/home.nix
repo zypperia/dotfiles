@@ -161,20 +161,12 @@
     enable = true;
     settings = {
       set-repeat = "50 300";
-      #default-layout = "dwindle";
+      default-layout = "rivertile";
       #xcursor-theme = "Adwaita 24";
       focus-follows-cursor = "normal";
-      #spawn = [
-      #  # rivertile
-      #  "${pkgs.rivertile}/bin/rivertile -view-padding 4 -outer-padding 8"
-      #  # wallpaper (optional)
-      #  "sh -lc '[ -f $HOME/.local/share/wallpaper ] && ${pkgs.swaybg}/bin/swaybg -m fill -i \"$HOME/.local/share/wallpaper\"'"
-      #  # notifications
-      #  "${pkgs.mako}/bin/mako"
-      #  # clipboard helpers
-      #  "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.wl-clipboard}/bin/wl-copy"
-      #  "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.wl-clipboard}/bin/wl-copy"
-      #];
+      spawn = [
+        "rivertile -view-padding 4 -outer-padding 8"
+      ];
       map.normal = {
         "Super Return" = "spawn foot";
         "Super D" = "spawn fuzzel";
