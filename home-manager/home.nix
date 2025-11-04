@@ -162,7 +162,11 @@
     settings = {
       set-repeat = "50 300";
       default-layout = "rivertile";
-      #xcursor-theme = "Adwaita 24";
+      background-color = "#000000";
+
+      border-color-focused = "#787c99";
+      border-color-unfocused = "#1b1b23";
+
       focus-follows-cursor = "normal";
       spawn = [
         "rivertile"
