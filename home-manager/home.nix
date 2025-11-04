@@ -162,10 +162,10 @@
     settings = {
       set-repeat = "50 300";
       default-layout = "rivertile";
-      background-color = "#000000";
+      background-color = "0x000000";
 
-      border-color-focused = "#787c99";
-      border-color-unfocused = "#1b1b23";
+      border-color-focused = "0x787c99";
+      border-color-unfocused = "0x1b1b23";
 
       focus-follows-cursor = "normal";
       spawn = [
