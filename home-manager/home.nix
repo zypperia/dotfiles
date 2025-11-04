@@ -23,6 +23,10 @@
     gnumake
     cmake
     gcc
+    uv
+    podman
+    podman-tui
+    podman-compose
 
     # lsp
     tree-sitter
@@ -31,8 +35,6 @@
     nil
     ruff
 
-    # py
-    uv
   ];
 
   home.sessionVariables = {
